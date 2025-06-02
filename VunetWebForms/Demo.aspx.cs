@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace VunetWebForms
 {
     public partial class Demo : System.Web.UI.Page
     {
+        protected Label lblMessage;
+        protected TextBox txtName;
+        protected TextBox txtEmail;
+        protected TextBox txtCompany;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

@@ -14,15 +14,15 @@
                         <h3>vuSmartMaps™</h3>
                     </div>
                     <div class="panel-body">
-                        <img src="~/Content/Images/smartmaps-placeholder.jpg" runat="server" alt="vuSmartMaps" class="img-responsive" />
+                        <img src="Content/Images/vubjm-img.png" alt="vuAnalytics" class="img-responsive w-100" />
                         <p class="mt-3">
                             Unified business and IT observability platform offering real-time insights 
                             and automated root cause analysis.
                         </p>
                         <ul class="list-unstyled">
-                            <li><i class="glyphicon glyphicon-ok"></i> End-to-end visibility</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> AI-powered analytics</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> Automated troubleshooting</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>End-to-end visibility</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>AI-powered analytics</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Automated troubleshooting</li>
                         </ul>
                         <asp:Button ID="btnDemo1" runat="server" Text="Request Demo" CssClass="btn btn-primary" OnClick="btnRequestDemo_Click" />
                     </div>
@@ -35,15 +35,15 @@
                         <h3>vuBanking™</h3>
                     </div>
                     <div class="panel-body">
-                        <img src="Content/Images/banking-placeholder.jpg" alt="vuBanking" class="img-responsive" />
+                        <img src="Content/Images/vubjm-img.png" alt="vuAnalytics" class="img-responsive w-100" />
                         <p class="mt-3">
                             Comprehensive banking analytics solution for monitoring digital banking services 
                             and customer experience.
                         </p>
                         <ul class="list-unstyled">
-                            <li><i class="glyphicon glyphicon-ok"></i> Transaction monitoring</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> Customer journey analytics</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> Performance metrics</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Transaction monitoring</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Customer journey analytics</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Performance metrics</li>
                         </ul>
                         <asp:Button ID="btnDemo2" runat="server" Text="Request Demo" CssClass="btn btn-primary" OnClick="btnRequestDemo_Click" />
                     </div>
@@ -56,15 +56,15 @@
                         <h3>vuAnalytics™</h3>
                     </div>
                     <div class="panel-body">
-                        <img src="~/Content/Images/analytics-placeholder.jpg" runat="server" alt="vuAnalytics" class="img-responsive" />
+                        <img src="Content/Images/vubjm-img.png" alt="vuAnalytics" class="img-responsive w-100" />
                         <p class="mt-3">
                             Advanced analytics platform providing actionable insights for business 
                             process optimization.
                         </p>
                         <ul class="list-unstyled">
-                            <li><i class="glyphicon glyphicon-ok"></i> Predictive analytics</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> Custom dashboards</li>
-                            <li><i class="glyphicon glyphicon-ok"></i> Real-time reporting</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Predictive analytics</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Custom dashboards</li>
+                            <li><i class="glyphicon glyphicon-ok"></i>Real-time reporting</li>
                         </ul>
                         <asp:Button ID="btnDemo3" runat="server" Text="Request Demo" CssClass="btn btn-primary" OnClick="btnRequestDemo_Click" />
                     </div>
@@ -72,24 +72,32 @@
             </div>
         </div>
 
-        <!-- Demo Request Form Modal -->
-        <div class="modal fade" id="demoRequestModal" tabindex="-1" role="dialog" aria-labelledby="demoRequestModalLabel">
-            <div class="modal-dialog" role="document">
+        <!-- Demo Request Form (Initially Hidden) -->
+        <asp:Panel ID="pnlDemoRequest" runat="server" CssClass="modal fade" Visible="false">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="demoRequestModalLabel">Request a Demo</h4>
+                        <h4 class="modal-title">Request a Demo</h4>
                     </div>
                     <div class="modal-body">
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <div class="form-group">
-                                    <asp:Label runat="server" AssociatedControlID="txtName">Name:</asp:Label>
-                                    <asp:TextBox ID="txtName" runat="server" CssClass="form-control" required="required"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvName" runat="server" 
-                                        ControlToValidate="txtName" 
-                                        ErrorMessage="Name is required" 
-                                        CssClass="text-danger"
-                                        Display="Dynamic">
-                                    </asp:RequiredFieldValidator>
-                                </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtName">Name:</asp:Label>
+                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtEmail">Email:</asp:Label>
+                            <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" CssClass="form-control" required="required"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:Label runat="server" AssociatedControlID="txtCompany">Company:</asp:Label>
+                            <asp:TextBox ID="txtCompany" runat="server" CssClass="form-control" required="required"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnSubmitDemo" runat="server" Text="Submit Request" CssClass="btn btn-primary" OnClick="btnSubmitDemo_Click" />
+                    </div>
+                </div>
+            </div>
+        </asp:Panel>
+    </main>
+</asp:Content>

@@ -11,8 +11,38 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <script type="text/javascript" src="http://cdn.vunet.ai/rum/vunet-rum.js"></script>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <script>
+        (function (w, s, d, r, e, n) {
+            (w[s] = w[s] || {
+                readyListeners: [],
+                onReady: function (e) {
+                    w[s].readyListeners.push(e);
+                },
+            }),
+                ((e = d.createElement('script')).async = 1),
+                (e.src = r),
+                (n = d.getElementsByTagName('script')[0]).parentNode.insertBefore(e, n);
+        })(
+            window,
+            'vunetRum',
+            document,
+            'http://cdn.vunet.ai/rum/vunet-rum.js',
+        );
+        window.vunetRum.onReady(function () {
+            window.vunetRum.initialize({
+                collectionSourceUrl: "https://qa.vunetsystems.com/rum/v1/traces", // set COLLECTION_SOURCE_URL env variable in docker to automatically update this using docker image
+                serviceName: 'winforms', // mention the service name of the application
+                applicationName: 'test', // mention the name of the application
+                samplingProbability: 1,
+                collectErrors: true,
+                defaultAttributes: {
+                    appFx: "WebForms",
+                },
+                authorizationToken: 'd92623009f7954483616c28c499e9c0d0bbc2e4588502249ba05de8d1044efa2'
+            });
+        });
+    </script>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -81,5 +111,6 @@
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder></body>
+    </asp:PlaceHolder>
+</body>
 </html>
